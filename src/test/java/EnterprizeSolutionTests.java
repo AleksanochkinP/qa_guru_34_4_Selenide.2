@@ -12,12 +12,13 @@ public class EnterprizeSolutionTests {
     static void setupConfig() {
         Configuration.pageLoadStrategy = "eager";
         Configuration.browserSize = "1920x1080";
-        Configuration.holdBrowserOpen = true;
+        Configuration.browser = "chrome";
+        Configuration.baseUrl = "https://github.com";
     }
 
     @Test
     void EnterprizeSolutionTests() {
-        open("https://github.com");
+        open("/");
         $(".HeaderMenu-nav").$(byText("Solutions")).hover();
         $$(".HeaderMenu-dropdown-link").findBy(text("Enterprises")).click();
         $("#hero-section-brand-heading").shouldHave(text("The AI-powered developer platform"));
